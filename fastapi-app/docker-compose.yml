@@ -1,0 +1,21 @@
+version: '3.8'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    depends_on:
+      - datadog
+  datadog:
+    build:
+      context: .
+      dockerfile: Dockerfile.datadog
+    environment:
+      DD_API_KEY: "${DD_API_KEY}"
+      DD_SITE: "datadoghq.com"
+    command: ["agent", "run"]
+    volumes:
+      - ./datadog.yaml:/etc/datadog-agent/datadog.yaml:ro
+      # 必要に応じて他のDatadog設定も追加 

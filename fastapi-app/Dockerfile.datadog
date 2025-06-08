@@ -1,0 +1,8 @@
+FROM gcr.io/datadoghq/agent:latest
+
+# Datadog APIキーや追加設定はCloud Runの環境変数で渡すことを想定
+# 例:
+# ENV DD_API_KEY=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+# ENV DD_SITE=datadoghq.com
+
+CMD ["agent", "run"] 

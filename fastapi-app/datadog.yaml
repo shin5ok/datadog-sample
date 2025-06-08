@@ -1,0 +1,3 @@
+api_key: ${DD_API_KEY}
+site: datadoghq.com
+hostname: fastapi-app-datadog 
